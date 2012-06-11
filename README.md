@@ -15,12 +15,12 @@ To get the source:
 
 To build
 
-> repo sync -j4<br>
 > . build/envsetup.sh<br>
-> lunch cm_evita-userdebug<br>
-> cd vendor/cm
-> ./get-prebuilts
+> brunch cm_evita<br>
+> cd vendor/cm<br>
+> ./get-prebuilts<br>
+> cd ../..<br>
 > make -j4<br>
 
-To make a recovery flashable zip, run
-> make otapackage
+Once build is completed, it will be located at $BUILDDIRECTORY/out/target/product/evita/
+Flash with GAPPS: http://goo.im/gapps/gapps-ics-20120429-signed.zip
