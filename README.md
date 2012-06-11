@@ -16,11 +16,10 @@ To get the source:
 To build
 
 > . build/envsetup.sh<br>
-> brunch cm_evita<br>
 > cd vendor/cm<br>
 > ./get-prebuilts<br>
 > cd ../..<br>
-> make -j4<br>
+> brunch evita<br>
 
 Once build is completed, it will be located at $BUILDDIRECTORY/out/target/product/evita/
 Flash with GAPPS: http://goo.im/gapps/gapps-ics-20120429-signed.zip
