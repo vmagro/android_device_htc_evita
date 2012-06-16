@@ -59,6 +59,9 @@ BOARD_KERNEL_PAGE_SIZE := 2048
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8
 BOARD_FORCE_RAMDISK_ADDRESS := 0x81800000
 
+# Preload bootanimation to avoid jerkyness
+TARGET_BOOTANIMATION_PRELOAD := true
+
 TARGET_PREBUILT_KERNEL := device/htc/evita/prebuilt/kernel
 #TARGET_KERNEL_CONFIG := evita_defconfig
 #TARGET_KERNEL_SOURCE := kernel/htc/evita
