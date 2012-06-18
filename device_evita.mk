@@ -105,7 +105,8 @@ PRODUCT_COPY_FILES += \
     device/htc/evita/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
     device/htc/evita/keylayout/h2w_headset.kl:system/usr/keylayout/h2w_headset.kl \
     device/htc/evita/keylayout/keypad_8960.kl:system/usr/keylayout/keypad_8960.kl \
-    device/htc/evita/keylayout/msm8960-snd-card_Button_Jack.kl:system/usr/keylayout/msm8960-snd-card_Button_Jack.kl
+    device/htc/evita/keylayout/msm8960-snd-card_Button_Jack.kl:system/usr/keylayout/msm8960-snd-card_Button_Jack.kl \
+    device/htc/evita/keylayout/virtualkeys:system/usr/keylayout/virtualkeys
 
 # Input device config
 PRODUCT_COPY_FILES += \
@@ -258,7 +259,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 PRODUCT_LOCALES += en_US xhdpi
-PRODUCT_VERSION_DEVICE_SPECIFIC=alpha3
+PRODUCT_VERSION_DEVICE_SPECIFIC=alpha4
 
 # For RomManager
 ADDITIONAL_BUILD_PROPERTIES += \

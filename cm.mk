@@ -12,6 +12,9 @@ $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 # Inherit device configuration
 $(call inherit-product, device/htc/evita/device_evita.mk)
 
+# Enhanced NFC
+$(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
+
 # Device naming
 PRODUCT_DEVICE := evita
 PRODUCT_NAME := cm_evita
