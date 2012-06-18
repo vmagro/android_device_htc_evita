@@ -1783,29 +1783,17 @@ SectionDevice
 
 	EnableSequence
 		'SLIM_0_RX Channels':0:One
-		'RX3 MIX1 INP1':0:RX1
-		'RX4 DSM MUX':0:DSM_INV
-		'LINEOUT1 DAC Switch':1:1
-		'LINEOUT3 DAC Switch':1:1
-		'LINEOUT1 Volume':1:100
-		'LINEOUT3 Volume':1:100
-		'LINEOUT1XB Volume':1:0
-		'LINEOUT3XB Volume':1:0
-		'RX3 Digital Volume':1:67
-		'RX4 Digital Volume':1:67
-		'EAR AMP EN Switch':1:1
+		'RX1 MIX1 INP1':0:RX1
+		'DAC1 Switch':1:1
+		'RX1 Digital Volume':1:67
+		'EAR PA Gain':0:POS_6_DB
 	EndSequence
 
 	DisableSequence
-		'EAR AMP EN Switch':1:0
-		'LINEOUT1 Volume':1:0
-		'LINEOUT3 Volume':1:0
-		'RX3 Digital Volume':1:0
-		'RX4 Digital Volume':1:0
-		'LINEOUT1 DAC Switch':1:0
-		'LINEOUT3 DAC Switch':1:0
-		'RX3 MIX1 INP1':0:ZERO
-		'RX4 DSM MUX':0:CIC_OUT
+		'EAR PA Gain':0:POS_2_DB
+		'RX1 Digital Volume':1:0
+		'DAC1 Switch':1:0
+		'RX1 MIX1 INP1':0:ZERO
 	EndSequence
 
 	ACDBID 7:1
