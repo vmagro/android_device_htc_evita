@@ -114,20 +114,17 @@ case "$target" in
      chown system /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
      chown root.system /sys/devices/system/cpu/mfreq
      chmod 220 /sys/devices/system/cpu/mfreq
-     chown root.system /sys/devices/system/cpu/cpu1/online
-     chmod 664 /sys/devices/system/cpu/cpu1/online
+	 chown root.system /sys/devices/system/cpu/cpu1/online
+	 echo 1 > /sys/devices/system/cpu/cpu1/online
+     if [ -e /system/bin/dcmhelper ]; then     	
+     	/system/bin/dcmhelper
+     fi
+     chmod 444 /sys/devices/system/cpu/cpu1/online
      chown system /sys/power/perflock
      chown system /sys/power/cpufreq_ceiling
      chown system /sys/module/restart/parameters/notify_efs_sync
-     echo "0,2,4,7,9,12" > /sys/module/lowmemorykiller/parameters/adj
-     case "$hardware" in "elite")
-         echo "7746,9720,11694,13742,15715,24709" > /sys/module/lowmemorykiller/parameters/minfree
-         ;;
-     esac
-     case "$hardware" in "ville")
-         echo "7946,9953,11960,14008,16015,25108" > /sys/module/lowmemorykiller/parameters/minfree
-         ;;
-     esac
+     echo "0,4,6,8,14,15" > /sys/module/lowmemorykiller/parameters/adj
+     echo "2560,4096,6144,7680,8704,10240" > /sys/module/lowmemorykiller/parameters/minfree
      chown radio.system /sys/module/modem_8960/parameters/enable_modem_ssr
      ;;
 esac
