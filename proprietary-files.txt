@@ -17,8 +17,6 @@ bin/qmuxd
 bin/thermald
 bin/time_daemon
 bin/zchgd
-bin/dcmhelper
-bin/dcmlog
 
 # Audio
 lib/libacdbloader.so
