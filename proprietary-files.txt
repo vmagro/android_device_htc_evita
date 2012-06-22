@@ -47,6 +47,8 @@ lib/libmmjpeg.so
 lib/liboemcamera.so
 lib/libOlaEngine.so
 lib/libposteffect.so
+lib/libOmxVenc.so
+lib/libOmxVdec.so
 
 # Graphics
 lib/egl/eglsubAndroid.so
