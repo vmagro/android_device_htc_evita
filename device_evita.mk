@@ -195,10 +195,6 @@ PRODUCT_COPY_FILES += \
     vendor/htc/evita/proprietary/lib/hw/nfc.elite.so:system/lib/hw/nfc.elite.so \
     vendor/htc/evita/proprietary/vendor/firmware/libpn544_fw.so:system/vendor/firmware/libpn544_fw.so
 
-#Dual core
-PRODUCT_COPY_FILES +=\
-    device/htc/evita/90dualcore:system/etc/init.d/90dualcore
-
 # Kernel modules
 PRODUCT_COPY_FILES += \
     device/htc/evita/modules/prima_wlan.ko:/system/lib/modules/prima_wlan.ko \
