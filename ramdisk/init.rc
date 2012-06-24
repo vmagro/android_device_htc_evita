@@ -1,7 +1,6 @@
 import init.usb.rc
 
 on early-init
-    #chmod 0000 /sys/board_properties/virtualkeys.synaptics-rmi-touchscreen
     # Set init and its forked children's oom_adj.
     write /proc/1/oom_adj -16
 
@@ -109,9 +108,6 @@ on fs
     mount yaffs2 mtd@cache /cache nosuid nodev
 
 on post-fs
-    #chmod 0444 /sys/board_properties/virtualkeys.synaptics-rmi-touchscreen
-    #rm /sys/board_properties/virtualkeys.synaptics-rmi-touchscreen
-    #symlink /sys/board_properties/virtualkeys.synaptics-rmi-touchscreen /system/usr/keylayout/virtualkeys.synaptics-rmi-touchscreen
     # once everything is setup, no need to modify /
     mount rootfs rootfs / ro remount
 
@@ -240,8 +236,33 @@ on post-fs-data
 
 on boot
 
-# make backup of virtualkeys file
-    cp /sys/board_properties/virtualkeys.synaptics-rmi-touchscreen /sys/board_properties/virtualkeysbackup
+# dual core mod
+    echo "ondemand" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+     echo "ondemand" > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+     echo 90 > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold
+     echo 50000 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
+     echo 1 > /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
+     echo 4 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
+     echo 10 > /sys/devices/system/cpu/cpufreq/ondemand/down_differential
+     echo 384000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+     echo 384000 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
+     chown system /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
+     chown system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+     chown system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+     chown system /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+     chown system /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
+     chown root.system /sys/devices/system/cpu/mfreq
+     chmod 220 /sys/devices/system/cpu/mfreq
+     chown root.system /sys/devices/system/cpu/cpu1/online
+     echo 1 > /sys/devices/system/cpu/cpu1/online
+     chmod 444 /sys/devices/system/cpu/cpu1/online
+     chown system /sys/power/perflock
+     chown system /sys/power/cpufreq_ceiling
+     chown system /sys/module/restart/parameters/notify_efs_sync
+     echo "0,4,6,8,14,15" > /sys/module/lowmemorykiller/parameters/adj
+     echo "2560,4096,6144,7680,8704,10240" > /sys/module/lowmemorykiller/parameters/minfree
+     chown radio.system /sys/module/modem_8960/parameters/enable_modem_ssr
+
 # basic network init
     ifup lo
     hostname localhost
