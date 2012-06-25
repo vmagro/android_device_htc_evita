@@ -7,7 +7,6 @@ bin/akmd
 bin/charging
 #bin/ewtzmud
 bin/hci_qcomm_init
-bin/hostapd
 #bin/mm-abl-daemon
 bin/mm-qcamera-daemon
 bin/mpdecision
